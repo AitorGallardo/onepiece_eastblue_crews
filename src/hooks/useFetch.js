@@ -4,7 +4,7 @@ const APIKEY = import.meta.env.VITE_REACT_APP_API_KEY;
 
 export const useFetch = (url) => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
   const [error, setError] = useState();
   useEffect(() => {
     const controller = new AbortController();

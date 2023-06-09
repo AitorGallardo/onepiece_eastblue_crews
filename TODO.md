@@ -6,3 +6,6 @@
 
 - mobile version
 - improve and clear, like fetch better
+
+- cambiar modo grid a modo acordeon
+- mejorar fotos
