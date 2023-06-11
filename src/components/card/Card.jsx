@@ -12,7 +12,14 @@ export const Card = ({
 }) => {
   return (
     <div className='card__container'>
-      <img className='card__pirate-img' src={img} alt='pirate_image' />
+      {img ? (
+        <img className='card__pirate-img' src={img} alt='pirate_image' />
+      ) : (
+        <div className='card__no-image'>
+          <div className='line_1'></div>
+          <div className='line_2'></div>
+        </div>
+      )}
       <div className='card__content'>
         <h1>{name}</h1>
         <div className='card__bounty'>

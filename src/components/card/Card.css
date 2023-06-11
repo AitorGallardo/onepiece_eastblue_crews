@@ -6,7 +6,6 @@
   cursor: pointer;
 }
 
-
 .card__content {
   display: flex;
   flex-direction: column;
@@ -20,8 +19,32 @@
   height: 300px;
   border-radius: 8px 8px 0 0;
 }
+
+.card__no-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 8px 8px 0 0;
+  background-color: white;
+}
+
+.card__no-image > .line_1,
+.line_2 {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 10px;
+  background-color: black;
+}
+.card__no-image > .line_1 {
+  transform: translate(0, -50%) rotate(-38deg);
+}
+.card__no-image > .line_2 {
+  transform: translate(0, -50%) rotate(38deg);
+}
+
 .card__container > h1 {
-    font-size: 42px;
+  font-size: 42px;
 }
 .card__bounty {
   display: flex;
