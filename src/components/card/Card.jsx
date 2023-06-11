@@ -32,8 +32,8 @@ export const Card = ({
 Card.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  bounty: PropTypes.string.isRequired,
+  bounty: PropTypes.number.isRequired,
   devil_fruit: PropTypes.string.isRequired,
-  avg_power: PropTypes.string.isRequired,
+  avg_power: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
 };

@@ -7,12 +7,12 @@ export const CardGrid = ({ cards }) => {
   return (
     <div className='cardgrid__container'>
       {cards.map((card) => (
-        <Card key={card.id} {...card} />
+        <Card key={card.name} {...card} />
       ))}
     </div>
   );
 };
 
 CardGrid.propTypes = {
-  cards: PropTypes.object.isRequired,
+  cards: PropTypes.array.isRequired,
 };

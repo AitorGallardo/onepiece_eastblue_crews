@@ -1,4 +1,4 @@
-import { startLoadingCrews, setCrews } from './onePieceSlice';
+import { startLoadingCrews, setCrews } from './onepieceSlice';
 
 const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 const APIKEY = import.meta.env.VITE_REACT_APP_API_KEY;
@@ -23,9 +23,11 @@ export const getAllCrews = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        const crews = data.map((crew) => crew.name);
-        const members = extractMembers(data);
+      .then(({east_blue_pirate_crews}) => {
+        const crews = east_blue_pirate_crews.map((crew) => crew.name);
+        const members = extractMembers(east_blue_pirate_crews);
+        console.log('crews',crews);
+        console.log('members',members);
         dispatch(setCrews({ members, crews }));
       });
   };
