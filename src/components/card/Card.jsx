@@ -1,4 +1,4 @@
-import BellyIcon from '../../assets/Bellysymbol.webp';
+import BellyIcon from '../../assets/belly-icon.png';
 import PropTypes from 'prop-types';
 import './Card.css';
 
@@ -26,8 +26,8 @@ export const Card = ({
           <img className='card__belly-img' src={BellyIcon} alt='belly_money' />
           <p>{bounty.toLocaleString()}-</p>
         </div>
-        <p>{description}</p>
-        <p>{devil_fruit}</p>
+        <p className='card__content-description'>{description}</p>
+        <p>Devil Fruit: <strong>{devil_fruit}</strong></p>
         <p>
           Power: <strong>{avg_power}</strong>
         </p>
