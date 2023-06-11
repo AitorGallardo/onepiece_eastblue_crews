@@ -48,6 +48,7 @@
 .card__container > h1 {
   font-size: 42px;
   font-size: 800;
+  margin: .5rem;
 }
 .card__bounty {
   display: flex;
@@ -68,9 +69,23 @@
 
 
 .card__content-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-style: italic;
+  min-height: 100px; 
+  max-height: 100px;
+  overflow: hidden;
 }
 
 p {
   margin: 1rem;
+}
+
+.card__content > p:last-child{
+  font-size: 18px;
+}
+
+strong{
+  padding-left: 4px;
 }
