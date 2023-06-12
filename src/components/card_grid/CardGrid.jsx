@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import './CardGrid.css';
 
 export const CardGrid = ({ cards }) => {
+  const containerClass = cards.length === 1 ? 'cardgrid__container-oneitem' : 'cardgrid__container';
   return (
-    <div className='cardgrid__container'>
+    <div className={containerClass}>
       {cards.map((card) => (
         <Card key={card.name} {...card} />
       ))}

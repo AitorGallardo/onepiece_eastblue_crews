@@ -1,5 +1,17 @@
 .cardgrid__container{
     display: grid;
+    justify-items: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.cardgrid__container-oneitem{
+    display: grid;
+    justify-items: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
 }

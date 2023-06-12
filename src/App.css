@@ -6,3 +6,42 @@
 .app__container{
   padding: 2rem;
 }
+
+/* .app__filter-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+.app__filter-section > *{
+  flex: 1;
+}
+.app__filter-section > :first-child {
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+} */
+/* .fake_one{
+  flex: 1;
+} */
+
+
+.app__filter-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+  padding: 2rem 0;
+
+}
+
+.app__filter-section > *{
+  flex: 1;
+}
+
+.app__filter-section > :nth-child(2) {
+  justify-content: center;
+}
+.app__filter-section > :last-child {
+  justify-content: end;
+}

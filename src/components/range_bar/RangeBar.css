@@ -1,0 +1,7 @@
+.rangeBar__container{
+    display: flex;
+}
+
+.rangeBar-input{
+    cursor: pointer;
+}

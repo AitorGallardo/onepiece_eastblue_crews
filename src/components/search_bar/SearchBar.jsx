@@ -1,6 +1,8 @@
 import { useState } from "react"
 // import { ReactComponent as Icon } from '../../assets/search-icon.svg';
 
+import './SearchBar.css'
+
 export const SearchBar = ({handleOnChangeValue}) => {
 
     const [value, setValue] = useState('')
