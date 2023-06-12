@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   crews: [],
   members: [],
+  displayedMembers: [],
 }
 
 export const onepieceSlice = createSlice({
@@ -17,13 +18,17 @@ export const onepieceSlice = createSlice({
       // immutable state based off those changes
       state.isLoading = true;
     },
-    setCrews: (state,action) => {
+    setAllData: (state,action) => {
       state.crews = action.payload.crews;
       state.members = action.payload.members;
+      state.displayedMembers = action.payload.members;
       state.isLoading = false;
+    },
+    setDisplayedMembers: (state,action) => {
+      state.displayedMembers = action.payload;
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { startLoadingCrews, setCrews } = onepieceSlice.actions
+export const { startLoadingCrews, setAllData,setDisplayedMembers } = onepieceSlice.actions

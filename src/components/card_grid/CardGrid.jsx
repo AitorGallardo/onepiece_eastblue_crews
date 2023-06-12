@@ -1,7 +1,7 @@
 import { Card } from '../card/Card';
 import PropTypes from 'prop-types';
 
-import './CardGrid.css'
+import './CardGrid.css';
 
 export const CardGrid = ({ cards }) => {
   return (

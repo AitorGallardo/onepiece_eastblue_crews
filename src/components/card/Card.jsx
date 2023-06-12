@@ -42,5 +42,5 @@ Card.propTypes = {
   bounty: PropTypes.number.isRequired,
   devil_fruit: PropTypes.string.isRequired,
   avg_power: PropTypes.number.isRequired,
-  img: PropTypes.string.isRequired,
+  img: PropTypes.string,
 };
