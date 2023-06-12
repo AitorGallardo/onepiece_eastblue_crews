@@ -5,7 +5,7 @@ import { CardGrid } from './components/card_grid/CardGrid';
 import { getAllCrews, setDisplayedMembers } from './store/slices/onepiece';
 import { useEffect, useState } from 'react';
 import { SearchBar } from './components/search_bar/SearchBar';
-import { filterMembers } from './helpers/filterMembers';
+import { filterMembersByWord,filterMembersByRange } from './helpers/filterMembers';
 import { RangeBar } from './components/range_bar/RangeBar';
 
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
@@ -15,15 +15,17 @@ function App() {
   const { isLoading, crews, members, displayedMembers } = useSelector(
     (state) => state.onepiece
   );
-  console.log('componente', members);
   useEffect(() => {
     dispatch(getAllCrews());
-    console.log('USEEFFECT', members);
   }, []);
 
   const handleOnChangeValue = (value) => {
-    const filteredMemberes = filterMembers(value, members);
-    dispatch(setDisplayedMembers(filteredMemberes));
+    const filteredMembers = filterMembersByWord(value, displayedMembers);
+    dispatch(setDisplayedMembers(filteredMembers));
+  };
+  const handleOnChangeRange = (value) => {
+    const filteredMembers = filterMembersByRange(value, displayedMembers);
+    dispatch(setDisplayedMembers(filteredMembers));
   };
 
   return (
@@ -31,7 +33,7 @@ function App() {
       <section className='app__filter-section'>
         <div className="app__filter-section-left"></div>
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
-        <RangeBar />
+        <RangeBar handleOnChangeRange={handleOnChangeRange}/>
       </section>
 
       {displayedMembers && <CardGrid cards={displayedMembers} />}

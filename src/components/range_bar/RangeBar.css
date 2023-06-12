@@ -1,7 +1,53 @@
-.rangeBar__container{
+.rangeBar__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: end;
+}
+.radioButton__container{
     display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.rangeSlide__container {
+  position: relative;
+}
+.slider-tag {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+.slider-start {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  font-size: 14px;
+  color: #000000a6;
+}
+.slider-end {
+  position: absolute;
+  top: 15px;
+  left: 90%;
+  font-size: 14px;
+  color: #000000a6;
 }
 
-.rangeBar-input{
-    cursor: pointer;
+.rangeBar-input_range,
+.rangeBar-input_radio {
+  cursor: pointer;
+}
+.rangeBar-input_radio {
+  width: 20px;
+  height: 20px;
+}
+
+.rangeBar-input_range {
+  width: 100%;
 }
