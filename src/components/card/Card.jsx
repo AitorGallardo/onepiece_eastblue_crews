@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 export const Card = ({
+  isSingleCard,
   name,
   description,
   bounty,
@@ -11,7 +12,7 @@ export const Card = ({
   img,
 }) => {
   return (
-    <div className='card__container'>
+    <div className={`card__container ${isSingleCard? 'singleCard': ''}`}>
       {img ? (
         <img className='card__pirate-img' src={img} alt='pirate_image' />
       ) : (
@@ -43,4 +44,5 @@ Card.propTypes = {
   devil_fruit: PropTypes.string.isRequired,
   avg_power: PropTypes.number.isRequired,
   img: PropTypes.string,
+  isSingleCard: PropTypes.bool,
 };

@@ -6,6 +6,9 @@
   max-height: 650px;
   width: 100%; 
 }
+.card__container.singleCard{
+  width: 360px;
+}
 
 .card__content {
   display: flex;
@@ -101,3 +104,16 @@ strong {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@media (width < 670px) {
+  .card__container.singleCard{
+    width: 100%;
+  }
+}
+
+@media (670px <= width <= 980px) {
+  .card__container.singleCard{
+    width: 440px;
+  }
+}
+
