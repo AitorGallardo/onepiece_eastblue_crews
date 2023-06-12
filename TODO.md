@@ -4,6 +4,7 @@
 - Keep data in state
 - Filter data with selectors: by crew, by name
 - Filter by power un range component
+- Sorting by name, range power (asc/desc)
 - Meter acordeon al fitler con nombre negrita
 
 - mobile version
