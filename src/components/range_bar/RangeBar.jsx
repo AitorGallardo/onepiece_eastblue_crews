@@ -1,18 +1,22 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './RangeBar.css';
 
-export const RangeBar = ({ handleOnChangeRange }) => {
+export const RangeBar = ({ handleOnChangeValue }) => {
   const [value, setValue] = useState(50);
   const [disabled, setDisabled] = useState(true);
 
   const handleOnChange = ({ target }) => {
     const val = target.value;
     setValue(val);
-    handleOnChangeRange(val);
+    handleOnChangeValue({name:'power', value: val})
+
   };
   const handleOnClick = () => {
     setDisabled((value) => !value);
+    handleOnChangeValue({name:'isPowerDisabled', value:!value})
+
   };
   const tagOffset = 10;
   const tagPosition = {
@@ -28,7 +32,7 @@ export const RangeBar = ({ handleOnChangeRange }) => {
           id='radioButton'
           name='radioGroup'
           checked={!disabled}
-          onClick={handleOnClick}
+          onChange={handleOnClick}
         />
         <label htmlFor='radioButton'>Avg.Power</label>
       </div>
@@ -52,4 +56,7 @@ export const RangeBar = ({ handleOnChangeRange }) => {
       </div>
     </div>
   );
+};
+RangeBar.propTypes = {
+  handleOnChangeValue: PropTypes.func,
 };

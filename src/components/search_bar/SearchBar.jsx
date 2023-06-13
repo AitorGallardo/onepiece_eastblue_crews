@@ -1,5 +1,6 @@
 import { useState } from "react"
 // import { ReactComponent as Icon } from '../../assets/search-icon.svg';
+import PropTypes from 'prop-types';
 
 import './SearchBar.css'
 
@@ -10,7 +11,7 @@ export const SearchBar = ({handleOnChangeValue}) => {
     const handleOnChange = ({target}) =>{
         const val = target.value;
         setValue(val)
-        handleOnChangeValue(val)
+        handleOnChangeValue({name:'word', value:val})
     }
 
   return (
@@ -22,3 +23,8 @@ export const SearchBar = ({handleOnChangeValue}) => {
     </div>
   )
 }
+
+SearchBar.propTypes = {
+  handleOnChangeValue: PropTypes.func,
+};
+
