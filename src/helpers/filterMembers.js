@@ -11,17 +11,18 @@ String.prototype.srsu = function () {
   return this.sanitaize().replace(/[\s_]/g, '');
 };
 
-export const filterMembers = ({ word, power, isPowerDisabled }, members) => {
+export const filterMembers = ({ word, power, isPowerEnabled }, members) => {
+
 
   const checkWord = word
     ? (member) =>
         member.name.srs().includes(word.srs()) ||
         member.crew.srsu().includes(word.srs())
-    : true;
+    : ()=>true;
 
-  const checkPower = !isPowerDisabled
+  const checkPower = isPowerEnabled
     ? (member) => member.avg_power == power
-    : true;
+    : ()=>true;
 
   return members.filter((member) => checkWord(member) && checkPower(member));
 };

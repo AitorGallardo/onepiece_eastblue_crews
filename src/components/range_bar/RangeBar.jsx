@@ -5,19 +5,22 @@ import './RangeBar.css';
 
 export const RangeBar = ({ handleOnChangeValue }) => {
   const [value, setValue] = useState(50);
-  const [disabled, setDisabled] = useState(true);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const handleOnChange = ({ target }) => {
-    const val = target.value;
-    setValue(val);
-    handleOnChangeValue({name:'power', value: val})
+    const name = target.name;
+    let value = target.value;
 
-  };
-  const handleOnClick = () => {
-    setDisabled((value) => !value);
-    handleOnChangeValue({name:'isPowerDisabled', value:!value})
+    if (name === 'isPowerEnabled') {
+      value = !(value === 'true')
+      setIsEnabled(value);
+    } else {
+      setValue(value);
+    }
 
+    handleOnChangeValue({ name, value });
   };
+
   const tagOffset = 10;
   const tagPosition = {
     left: `${value - tagOffset}%`,
@@ -30,9 +33,11 @@ export const RangeBar = ({ handleOnChangeValue }) => {
           className='rangeBar-input_radio'
           type='radio'
           id='radioButton'
-          name='radioGroup'
-          checked={!disabled}
-          onChange={handleOnClick}
+          name='isPowerEnabled'
+          checked={isEnabled}
+          value={isEnabled}
+          onClick={handleOnChange}
+          readOnly
         />
         <label htmlFor='radioButton'>Avg.Power</label>
       </div>
@@ -40,13 +45,14 @@ export const RangeBar = ({ handleOnChangeValue }) => {
         <input
           id='rangeSlide'
           className='rangeBar-input_range'
+          name='power'
           type='range'
           min='0'
           max='100'
           value={value}
           step='5'
           onChange={handleOnChange}
-          disabled={disabled}
+          disabled={!isEnabled}
         />
         <span className='slider-tag' style={tagPosition}>
           {value}
