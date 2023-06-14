@@ -26,8 +26,8 @@ export const SortComponent = ({ handleOnChangeValue }) => {
           onChange={handleOptionChange}
         >
           <option value=''>-- Select an option --</option>
-          <option value='ascendent'>Ascendent</option>
-          <option value='descendent'>Descendent</option>
+          <option value='descendent'>From A to Z</option>
+          <option value='ascendent'>From Z to A</option>
         </select>
       </div>
       <div>

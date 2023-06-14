@@ -33,7 +33,7 @@ export const sortMembers = ({ sortByName, sortByPower }, members) => {
       : sortedMembers.sort((a, b) => b.name.localeCompare(a.name));
   }
   if (sortByPower) {
-    sortByName === 'descendent'
+    sortByPower === 'descendent'
       ? sortedMembers.sort((a, b) => b.avg_power - a.avg_power)
       : sortedMembers.sort((a, b) => a.avg_power - b.avg_power);
   }
