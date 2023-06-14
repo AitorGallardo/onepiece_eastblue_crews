@@ -1,15 +1,15 @@
-- Fetch Data
-- Create cards
-- Create grid to display data
-- Keep data in state
-- Filter data with selectors: by crew, by name
-- Filter by power un range component
-- Sorting by name, range power (asc/desc)
-- Meter acordeon al fitler con nombre negrita y que puedas clickar sugerencia para que salga esa
-- Meter debouncer al input.
+[X] Fetch Data
+[X] Create cards
+[X] Create grid to display data
+[X] Keep data in state
+[X] Filter data with selectors: by crew, by name
+[X] Filter by power un range component
+[ ] Sorting by name, range power (asc/desc)
+[ ] Meter acordeon al fitler con nombre negrita y que puedas clickar sugerencia para que salga esa
+[ ] Meter debouncer al input.
 
-- mobile version
-- improve and clear, like fetch better
+[ ] mobile version
+[ ] improve and clear, like fetch better
 
-- cambiar modo grid a modo acordeon
-- mejorar fotos
+[ ] cambiar modo grid a modo acordeon
+[ ] mejorar fotos

@@ -9,9 +9,10 @@ import {
 import { useEffect, useState } from 'react';
 import { SearchBar } from './components/search_bar/SearchBar';
 import {
-  filterMembers
+  filterMembers, sortMembers
 } from './helpers/filterMembers';
 import { RangeBar } from './components/range_bar/RangeBar';
+import { SortComponent } from './components/sort_component/SortComponent';
 
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
@@ -31,7 +32,8 @@ function App() {
 
   useEffect(() => {
     const filteredMembers = filterMembers(filter, members);
-    dispatch(setDisplayedMembers(filteredMembers));
+    const sortedMembers = sortMembers(filter,filteredMembers)
+    dispatch(setDisplayedMembers(sortedMembers));
   }, [filter]);
 
   const handleOnChangeValue = ({ name, value }) => {
@@ -46,6 +48,7 @@ function App() {
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
         <RangeBar handleOnChangeValue={handleOnChangeValue} />
       </section>
+      <SortComponent handleOnChangeValue={handleOnChangeValue}/>
 
       {displayedMembers && <CardGrid cards={displayedMembers} />}
     </div>

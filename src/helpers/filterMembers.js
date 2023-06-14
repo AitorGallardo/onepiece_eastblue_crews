@@ -12,19 +12,33 @@ String.prototype.srsu = function () {
 };
 
 export const filterMembers = ({ word, power, isPowerEnabled }, members) => {
-
-
   const checkWord = word
     ? (member) =>
         member.name.srs().includes(word.srs()) ||
         member.crew.srsu().includes(word.srs())
-    : ()=>true;
+    : () => true;
 
   const checkPower = isPowerEnabled
     ? (member) => member.avg_power == power
-    : ()=>true;
+    : () => true;
 
   return members.filter((member) => checkWord(member) && checkPower(member));
+};
+
+export const sortMembers = ({ sortByName, sortByPower }, members) => {
+  let sortedMembers = [...members];
+  if (sortByName) {
+    sortByName === 'descendent'
+      ? sortedMembers.sort((a, b) => a.name.localeCompare(b.name))
+      : sortedMembers.sort((a, b) => b.name.localeCompare(a.name));
+  }
+  if (sortByPower) {
+    sortByName === 'descendent'
+      ? sortedMembers.sort((a, b) => b.avg_power - a.avg_power)
+      : sortedMembers.sort((a, b) => a.avg_power - b.avg_power);
+  }
+
+  return sortedMembers;
 };
 
 export const filterMembersByWord = (value, members) => {
