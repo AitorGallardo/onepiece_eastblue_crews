@@ -4,7 +4,7 @@
 [X] Keep data in state
 [X] Filter data with selectors: by crew, by name
 [X] Filter by power un range component
-[ ] Sorting by name, range power (asc/desc)
+[X] Sorting by name, range power (asc/desc)
 [ ] Meter acordeon al fitler con nombre negrita y que puedas clickar sugerencia para que salga esa
 [ ] Meter debouncer al input.
 

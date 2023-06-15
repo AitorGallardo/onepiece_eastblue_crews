@@ -1,3 +1,34 @@
-.searchBar__container{
-    display: flex;
+.searchBar__container {
+  display: flex;
+}
+
+.searchBar__input {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid grey;
+}
+
+.searchBar__input:hover {
+    border: 1px solid black;
+}
+
+
+.searchBar__button {
+  padding: 10px;
+  border-radius: 0 8px 8px 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #dedfdf9e;
+}
+.searchBar__button:hover {
+  background-color: #dedfdf;
+}
+
+.searchBar__search-icon {
+  width: 20px;
+  height: auto;
+  /* object-fit: cover; */
+  vertical-align: middle;
 }

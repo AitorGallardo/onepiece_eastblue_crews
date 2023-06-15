@@ -1,5 +1,5 @@
 import { useState } from "react"
-// import { ReactComponent as Icon } from '../../assets/search-icon.svg';
+import searchIcon from '../../assets/search-icon.svg';
 import PropTypes from 'prop-types';
 
 import './SearchBar.css'
@@ -16,9 +16,9 @@ export const SearchBar = ({handleOnChangeValue}) => {
 
   return (
     <div className="searchBar__container">
-     <input type="text" value={value} onChange={handleOnChange}/>   
-     <button className="icon-button">
-      {/* <Icon className="icon" /> */}
+     <input className="searchBar__input" type="text" placeholder="Search" value={value} onChange={handleOnChange}/>   
+     <button className="searchBar__button">
+     <img className="searchBar__search-icon" src={searchIcon} alt="Your SVG" />
     </button>
     </div>
   )
