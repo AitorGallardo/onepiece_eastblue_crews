@@ -1,0 +1,20 @@
+.sortComponent__container{
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.sortComponent__container > *{
+    display: flex;
+    gap: 10px;
+}
+
+select{
+    cursor: pointer;
+}
+
+select:hover{
+    border: 1px solid grey;
+}

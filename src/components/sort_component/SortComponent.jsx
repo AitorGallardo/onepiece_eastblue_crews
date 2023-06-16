@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import './SortComponent.css'
+
 export const SortComponent = ({ handleOnChangeValue }) => {
   const [selectedSortByName, setSelectedSortByName] = useState('');
   const [selectedSortByPower, setSelectedSortByPower] = useState('');
@@ -16,7 +18,7 @@ export const SortComponent = ({ handleOnChangeValue }) => {
   };
 
   return (
-    <>
+    <div className='sortComponent__container'>
       <div>
         <label htmlFor='sortByPower'>By name:</label>
         <select
@@ -43,6 +45,6 @@ export const SortComponent = ({ handleOnChangeValue }) => {
           <option value='descendent'>Higher first</option>
         </select>
       </div>
-    </>
+    </div>
   );
 };

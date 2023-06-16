@@ -1,10 +1,11 @@
 .searchBar__container {
   display: flex;
+  font-size: 14px;
 }
 
 .searchBar__input {
   font-size: 16px;
-  padding: 5px 10px;
+  padding: 6px 10px;
   border-radius: 8px 0 0 8px;
   border: 1px solid grey;
 }
@@ -15,7 +16,7 @@
 
 
 .searchBar__button {
-  padding: 10px;
+  padding: 6px;
   border-radius: 0 8px 8px 0;
   outline: none;
   border: none;
@@ -23,11 +24,11 @@
   background-color: #dedfdf9e;
 }
 .searchBar__button:hover {
-  background-color: #dedfdf;
+  background-color: #dedfdfdb;
 }
 
 .searchBar__search-icon {
-  width: 20px;
+  width: 18px;
   height: auto;
   /* object-fit: cover; */
   vertical-align: middle;

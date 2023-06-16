@@ -2,15 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 // import { useFetch } from './hooks/useFetch';
 import { CardGrid } from './components/card_grid/CardGrid';
-import {
-  getAllCrews,
-  setDisplayedMembers,
-} from './store/slices/onepiece';
+import { getAllCrews, setDisplayedMembers } from './store/slices/onepiece';
 import { useEffect, useState } from 'react';
 import { SearchBar } from './components/search_bar/SearchBar';
-import {
-  filterMembers, sortMembers
-} from './helpers/filterMembers';
+import { filterMembers, sortMembers } from './helpers/filterMembers';
 import { RangeBar } from './components/range_bar/RangeBar';
 import { SortComponent } from './components/sort_component/SortComponent';
 
@@ -18,8 +13,9 @@ import { SortComponent } from './components/sort_component/SortComponent';
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading, crews, members, displayedMembers } =
-    useSelector((state) => state.onepiece);
+  const { isLoading, crews, members, displayedMembers } = useSelector(
+    (state) => state.onepiece
+  );
   const [filter, setFilter] = useState({
     word: null,
     power: 50,
@@ -32,7 +28,7 @@ function App() {
 
   useEffect(() => {
     const filteredMembers = filterMembers(filter, members);
-    const sortedMembers = sortMembers(filter,filteredMembers)
+    const sortedMembers = sortMembers(filter, filteredMembers);
     dispatch(setDisplayedMembers(sortedMembers));
   }, [filter]);
 
@@ -40,15 +36,17 @@ function App() {
     setFilter((filter) => ({ ...filter, [name]: value }));
   };
 
-
   return (
     <div className='app__container'>
-      <section className='app__filter-section'>
-        <div className='app__filter-section-left'></div>
+      <div className='app__filter-section'>
+        <div className='app__filter-section__left'>
+          <SortComponent handleOnChangeValue={handleOnChangeValue} />
+        </div>
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
-        <RangeBar handleOnChangeValue={handleOnChangeValue} />
-      </section>
-      <SortComponent handleOnChangeValue={handleOnChangeValue}/>
+        <div className='app__filter-section__right'>
+          <RangeBar handleOnChangeValue={handleOnChangeValue} />
+        </div>
+      </div>
 
       {displayedMembers && <CardGrid cards={displayedMembers} />}
     </div>
