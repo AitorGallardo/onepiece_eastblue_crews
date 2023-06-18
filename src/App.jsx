@@ -45,7 +45,13 @@ function App() {
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
         <div className='app__filter-section__right'>
           <RangeBar handleOnChangeValue={handleOnChangeValue} />
+          <div className="app__filter-section_sidebar-icon">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+        </div>
+
       </div>
 
       {displayedMembers && <CardGrid cards={displayedMembers} />}
