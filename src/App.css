@@ -29,6 +29,9 @@
   display: none;
   cursor: pointer;
 }
+.app__filter-section_sidebar-icon:hover > * {
+  background-color: #ddd8d8;
+}
 
 .app__filter-section > * {
   flex: 1;
@@ -58,9 +61,7 @@
     display: block;
     cursor: pointer;
   }
-  .app__filter-section_sidebar-icon:hover > * {
-    background-color: #ddd8d8;
-  }
+
 }
 .app__filter-section_sidebar-icon > * {
   margin: 2px 0 2px 0;

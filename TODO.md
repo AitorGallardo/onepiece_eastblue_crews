@@ -6,7 +6,7 @@
 [X] Filter by power un range component
 [X] Sorting by name, range power (asc/desc)
 <!-- [ ] Meter debouncer al input. -->
-[ ] mobile version
+[X] mobile version
 [ ] improve and clear, like fetch better
 
 [ ] cambiar modo grid a modo acordeon

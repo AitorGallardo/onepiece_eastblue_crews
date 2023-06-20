@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import './SearchBar.css';
 
 export const SearchBar = ({ handleOnChangeValue }) => {
-  const [value, setValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
 
   const handleOnChange = ({ target }) => {
-    const val = target.value;
-    setValue(val);
-    handleOnChangeValue({ name: 'word', value: val });
+    const value = target.value;
+    setSearchValue(value);
+    handleOnChangeValue({ name: 'word', value });
   };
 
   return (
@@ -20,7 +20,7 @@ export const SearchBar = ({ handleOnChangeValue }) => {
           className='searchBar__input'
           type='text'
           placeholder='Search'
-          value={value}
+          value={searchValue}
           onChange={handleOnChange}
         />
         <button className='searchBar__button'>

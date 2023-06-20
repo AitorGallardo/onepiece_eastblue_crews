@@ -9,6 +9,7 @@ import { filterMembers, sortMembers } from './helpers/filterMembers';
 import { RangeBar } from './components/range_bar/RangeBar';
 import { SortComponent } from './components/sort_component/SortComponent';
 import { Sidebar } from './components/sidebar/Sidebar';
+import { SidebarIcon } from './components/sidebarIcon/SidebarIcon';
 
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
@@ -53,9 +54,11 @@ function App() {
   };
 
   const handleOutsideClick = (event) => {
-    console.log('hola', sidebarRef);
-    if (sidebarRef.current && !sidebarRef.current.contains(event.target)&&!sidebarIconRef.current.contains(event.target)) {
-      console.log('hehe');
+    if (
+      sidebarRef.current &&
+      !sidebarRef.current.contains(event.target) &&
+      !sidebarIconRef.current.contains(event.target)
+    ) {
       setShowSidebar(false);
     }
   };
@@ -69,16 +72,7 @@ function App() {
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
         <div className='app__filter-section__right'>
           <RangeBar handleOnChangeValue={handleOnChangeValue} />
-
-          <div
-            ref={sidebarIconRef}
-            className='app__filter-section_sidebar-icon'
-            onClick={() => handleShowSidebar(true)}
-          >
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <SidebarIcon handleShowSidebar={handleShowSidebar} ref={sidebarIconRef}/>
         </div>
       </div>
       <Sidebar
@@ -86,10 +80,15 @@ function App() {
         handleShowSidebar={handleShowSidebar}
         ref={sidebarRef}
       >
-          <SortComponent isOnSidebar={true} handleOnChangeValue={handleOnChangeValue} />
+        <SortComponent
+          isOnSidebar={true}
+          handleOnChangeValue={handleOnChangeValue}
+        />
 
-          <RangeBar isOnSidebar={true} handleOnChangeValue={handleOnChangeValue} />
-
+        <RangeBar
+          isOnSidebar={true}
+          handleOnChangeValue={handleOnChangeValue}
+        />
       </Sidebar>
 
       {displayedMembers && <CardGrid cards={displayedMembers} />}

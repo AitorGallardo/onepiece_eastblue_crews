@@ -17,12 +17,14 @@ export const SortComponent = ({ isOnSidebar=false, handleOnChangeValue }) => {
     handleOnChangeValue(payload);
   };
 
+  const sortComponentClasses =`sortComponent__container ${isOnSidebar?'onSidebar':''}`;
+
   return (
-    <div className={`sortComponent__container ${isOnSidebar?'onSidebar':''}`}>
+    <div className={sortComponentClasses}>
       <div>
-        <label htmlFor='sortByPower'>By name:</label>
+        <label htmlFor='sortByName'>By name:</label>
         <select
-          id='sortByPower'
+          id='sortByName'
           name='sortByName'
           value={selectedSortByName}
           onChange={handleOptionChange}

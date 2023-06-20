@@ -6,8 +6,10 @@ import { forwardRef } from 'react';
 export const Sidebar = forwardRef((props, ref) => {
   const { isOpened, handleShowSidebar, children } = props;
 
+  const SidebarContainerClasses = `sidebar__container ${isOpened ? 'open' : ''}`
+
   return (
-    <div className={`sidebar__container ${isOpened ? 'open' : ''}`} ref={ref}>
+    <div className={SidebarContainerClasses} ref={ref}>
       <div className='sidebar__header'>
         <div
           className='sidebar__cross-icon'

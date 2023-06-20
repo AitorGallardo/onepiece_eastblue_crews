@@ -5,9 +5,9 @@ import './CardGrid.css';
 
 export const CardGrid = ({ cards }) => {
   const isSingleCard = cards.length === 1;
-  const containerClass = isSingleCard ? 'cardgrid__container-oneitem' : 'cardgrid__container';
+  const gridContainerClass = isSingleCard ? 'cardgrid__container-oneitem' : 'cardgrid__container';
   return (
-    <div className={containerClass}>
+    <div className={gridContainerClass}>
       {cards.map((card) => (
         <Card key={card.name} isSingleCard={isSingleCard} {...card}/>
       ))}
