@@ -3,15 +3,19 @@ import './App.css';
 // import { useFetch } from './hooks/useFetch';
 import { CardGrid } from './components/card_grid/CardGrid';
 import { getAllCrews, setDisplayedMembers } from './store/slices/onepiece';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SearchBar } from './components/search_bar/SearchBar';
 import { filterMembers, sortMembers } from './helpers/filterMembers';
 import { RangeBar } from './components/range_bar/RangeBar';
 import { SortComponent } from './components/sort_component/SortComponent';
+import { Sidebar } from './components/sidebar/Sidebar';
 
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
 function App() {
+  const [showSidebar, setShowSidebar] = useState(true);
+  const sidebarRef = useRef(null);
+  const sidebarIconRef = useRef(null);
   const dispatch = useDispatch();
   const { isLoading, crews, members, displayedMembers } = useSelector(
     (state) => state.onepiece
@@ -32,8 +36,28 @@ function App() {
     dispatch(setDisplayedMembers(sortedMembers));
   }, [filter]);
 
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
   const handleOnChangeValue = ({ name, value }) => {
     setFilter((filter) => ({ ...filter, [name]: value }));
+  };
+
+  const handleShowSidebar = (value) => {
+    setShowSidebar(value);
+  };
+
+  const handleOutsideClick = (event) => {
+    console.log('hola', sidebarRef);
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)&&!sidebarIconRef.current.contains(event.target)) {
+      console.log('hehe');
+      setShowSidebar(false);
+    }
   };
 
   return (
@@ -45,15 +69,24 @@ function App() {
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
         <div className='app__filter-section__right'>
           <RangeBar handleOnChangeValue={handleOnChangeValue} />
-          <div className="app__filter-section_sidebar-icon">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        </div>
 
+          <div
+            ref={sidebarIconRef}
+            className='app__filter-section_sidebar-icon'
+            onClick={() => handleShowSidebar(true)}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </div>
-
+      {/* {showSidebar && <Sidebar isOpened={showSidebar} handleShowSidebar={handleShowSidebar}/>} */}
+      <Sidebar
+        isOpened={showSidebar}
+        handleShowSidebar={handleShowSidebar}
+        ref={sidebarRef}
+      />
       {displayedMembers && <CardGrid cards={displayedMembers} />}
     </div>
   );
