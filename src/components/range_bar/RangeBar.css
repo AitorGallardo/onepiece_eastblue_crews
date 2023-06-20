@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: end;
 }
+
+.rangeBar__container.onSidebar {
+  flex-direction: column;
+}
+
 .radioButton__container{
     display: flex;
     align-items: center;

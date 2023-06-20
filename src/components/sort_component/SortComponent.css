@@ -5,6 +5,9 @@
     font-weight: bold;
     justify-content: center;
 }
+.sortComponent__container.onSidebar{
+    flex-direction: column;
+}
 
 .sortComponent__container > *{
     display: flex;

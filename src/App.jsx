@@ -13,7 +13,7 @@ import { Sidebar } from './components/sidebar/Sidebar';
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
   const sidebarRef = useRef(null);
   const sidebarIconRef = useRef(null);
   const dispatch = useDispatch();
@@ -81,12 +81,17 @@ function App() {
           </div>
         </div>
       </div>
-      {/* {showSidebar && <Sidebar isOpened={showSidebar} handleShowSidebar={handleShowSidebar}/>} */}
       <Sidebar
         isOpened={showSidebar}
         handleShowSidebar={handleShowSidebar}
         ref={sidebarRef}
-      />
+      >
+          <SortComponent isOnSidebar={true} handleOnChangeValue={handleOnChangeValue} />
+
+          <RangeBar isOnSidebar={true} handleOnChangeValue={handleOnChangeValue} />
+
+      </Sidebar>
+
       {displayedMembers && <CardGrid cards={displayedMembers} />}
     </div>
   );

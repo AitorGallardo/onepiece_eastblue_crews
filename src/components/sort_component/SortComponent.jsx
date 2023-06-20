@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import './SortComponent.css'
 
-export const SortComponent = ({ handleOnChangeValue }) => {
+export const SortComponent = ({ isOnSidebar=false, handleOnChangeValue }) => {
   const [selectedSortByName, setSelectedSortByName] = useState('');
   const [selectedSortByPower, setSelectedSortByPower] = useState('');
 
@@ -18,7 +18,7 @@ export const SortComponent = ({ handleOnChangeValue }) => {
   };
 
   return (
-    <div className='sortComponent__container'>
+    <div className={`sortComponent__container ${isOnSidebar?'onSidebar':''}`}>
       <div>
         <label htmlFor='sortByPower'>By name:</label>
         <select

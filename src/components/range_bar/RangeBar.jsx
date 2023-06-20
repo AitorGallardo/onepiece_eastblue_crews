@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './RangeBar.css';
 
-export const RangeBar = ({ handleOnChangeValue }) => {
+export const RangeBar = ({ isOnSidebar=false,handleOnChangeValue }) => {
   const [value, setValue] = useState(50);
   const [isEnabled, setIsEnabled] = useState(false);
 
@@ -27,7 +27,7 @@ export const RangeBar = ({ handleOnChangeValue }) => {
   };
 
   return (
-    <div className='rangeBar__container'>
+    <div className={`rangeBar__container ${isOnSidebar?'onSidebar':''}`}>
       <div className='radioButton__container'>
         <input
           className='rangeBar-input_radio'
