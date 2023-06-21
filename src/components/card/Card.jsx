@@ -10,7 +10,7 @@ const ImagePlaceholder = () => (
 );
 
 export const Card = ({
-  isSingleCard,
+  isSingleCard=false,
   name,
   description,
   bounty,

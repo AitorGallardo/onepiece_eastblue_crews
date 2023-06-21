@@ -7,6 +7,7 @@
   /* padding: 2rem; */
   height: 101vh;
   position: relative;
+  overflow-x: clip;
 }
 
 .app__filter-section {

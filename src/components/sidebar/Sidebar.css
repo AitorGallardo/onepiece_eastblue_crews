@@ -1,8 +1,9 @@
 .sidebar__container {
+  display: flex;
   position: absolute;
+  padding: 20px;
   top: 0;
   right: -300px;
-  display: flex;
   flex-direction: column;
   width: 300px;
   padding: 1rem;

@@ -1,0 +1,20 @@
+.cardGallery__container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.cardGallery__container >*{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.cardGallery__container >*:hover{
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}

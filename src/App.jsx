@@ -10,6 +10,7 @@ import { RangeBar } from './components/range_bar/RangeBar';
 import { SortComponent } from './components/sort_component/SortComponent';
 import { Sidebar } from './components/sidebar/Sidebar';
 import { SidebarIcon } from './components/sidebarIcon/SidebarIcon';
+import { CardGallery } from './components/card_gallery/CardGallery';
 
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
@@ -72,9 +73,13 @@ function App() {
         <SearchBar handleOnChangeValue={handleOnChangeValue} />
         <div className='app__filter-section__right'>
           <RangeBar handleOnChangeValue={handleOnChangeValue} />
-          <SidebarIcon handleShowSidebar={handleShowSidebar} ref={sidebarIconRef}/>
+          <SidebarIcon
+            handleShowSidebar={handleShowSidebar}
+            ref={sidebarIconRef}
+          />
         </div>
       </div>
+
       <Sidebar
         isOpened={showSidebar}
         handleShowSidebar={handleShowSidebar}
@@ -92,6 +97,7 @@ function App() {
       </Sidebar>
 
       {displayedMembers && <CardGrid cards={displayedMembers} />}
+      {/* {displayedMembers && <CardGallery members={displayedMembers} />} */}
     </div>
   );
 }
