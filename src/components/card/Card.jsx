@@ -11,6 +11,7 @@ const ImagePlaceholder = () => (
 
 export const Card = ({
   isSingleCard=false,
+  isGallery=false,
   name,
   description,
   bounty,
@@ -18,10 +19,12 @@ export const Card = ({
   avg_power,
   img,
 }) => {
-  const cardContainerClasses = `card__container ${isSingleCard ? 'singleCard' : ''}`;
+  const cardContainerGridClasses = `card__container ${isSingleCard ? 'singleCard' : ''}`;
+  const cardContainerGalleryClasses = `card__container-gallery`;
+  const cardConterinerClass = isGallery ? cardContainerGalleryClasses : cardContainerGridClasses
 
   return (
-    <div className={cardContainerClasses}>
+    <div className={cardConterinerClass}>
       {img ? (
         <img className='card__pirate-img' src={img} alt={name} />
       ) : (

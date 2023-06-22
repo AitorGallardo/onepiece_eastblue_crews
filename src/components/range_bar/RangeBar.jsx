@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './RangeBar.css';
 
-export const RangeBar = ({ isOnSidebar=false,handleOnChangeValue }) => {
+export const RangeBar = ({ isOnSidebar = false, handleOnChangeValue }) => {
   const [value, setValue] = useState(50);
   const [isEnabled, setIsEnabled] = useState(false);
 
@@ -12,7 +12,7 @@ export const RangeBar = ({ isOnSidebar=false,handleOnChangeValue }) => {
     let value = target.value;
 
     if (name === 'isPowerEnabled') {
-      value = !(value === 'true')
+      value = !(value === 'true');
       setIsEnabled(value);
     } else {
       setValue(value);
@@ -27,7 +27,7 @@ export const RangeBar = ({ isOnSidebar=false,handleOnChangeValue }) => {
   };
 
   return (
-    <div className={`rangeBar__container ${isOnSidebar?'onSidebar':''}`}>
+    <div className={`rangeBar__container ${isOnSidebar ? 'onSidebar' : ''}`}>
       <div className='radioButton__container'>
         <input
           className='rangeBar-input_radio'

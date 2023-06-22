@@ -39,6 +39,29 @@
   justify-content: center;
 }
 
+.app__content{
+  padding: 20px;
+}
+.app__content__dislay_mode-icons{
+  display: flex;
+  justify-content: flex-start;
+  padding:0 0 20px 20px;
+  gap: 10px;
+}
+
+.display_mode-icon{
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+.display_mode-icon:hover{
+  fill: red;
+}
+.display_mode-icon.grid{
+  height: 18px;
+  align-self: center;
+}
+
 @media (width <= 1200px) {
   .app__filter-section {
     display: flex;

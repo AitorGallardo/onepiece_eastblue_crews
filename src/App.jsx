@@ -12,21 +12,30 @@ import { Sidebar } from './components/sidebar/Sidebar';
 import { SidebarIcon } from './components/sidebarIcon/SidebarIcon';
 import { CardGallery } from './components/card_gallery/CardGallery';
 
+import GridIcon from './assets/grid-icon.svg';
+import GalleryIcon from './assets/gallery-icon.svg';
+// import {GridGalleryCopy} from './assets/grid-icon_copy.jsx';
+
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const sidebarRef = useRef(null);
-  const sidebarIconRef = useRef(null);
   const dispatch = useDispatch();
   const { isLoading, crews, members, displayedMembers } = useSelector(
     (state) => state.onepiece
   );
+
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [displayMode, setDisplayMode] = useState({
+    grid: true,
+    gallery: false,
+  });
   const [filter, setFilter] = useState({
     word: null,
     power: 50,
-    isPowerDisabled: true,
+    isPowerEnabled: false,
   });
+  const sidebarRef = useRef(null);
+  const sidebarIconRef = useRef(null);
 
   useEffect(() => {
     dispatch(getAllCrews());
@@ -36,7 +45,7 @@ function App() {
     const filteredMembers = filterMembers(filter, members);
     const sortedMembers = sortMembers(filter, filteredMembers);
     dispatch(setDisplayedMembers(sortedMembers));
-  }, [filter]);
+  }, [filter, members]);
 
   useEffect(() => {
     document.addEventListener('click', handleOutsideClick);
@@ -95,9 +104,29 @@ function App() {
           handleOnChangeValue={handleOnChangeValue}
         />
       </Sidebar>
-
-      {displayedMembers && <CardGrid cards={displayedMembers} />}
-      {/* {displayedMembers && <CardGallery members={displayedMembers} />} */}
+      <div className='app__content'>
+        <div className='app__content__dislay_mode-icons'>
+          <img
+            className='display_mode-icon grid'
+            src={GridIcon}
+            onClick={() => setDisplayMode({ grid: true, gallery: false })}
+            alt='Grid Icon'
+          />
+          <img
+            className='display_mode-icon'
+            src={GalleryIcon}
+            onClick={() => setDisplayMode({ grid: false, gallery: true })}
+            alt='Gallery Icon'
+          />
+          {/* <GridGalleryCopy/> */}
+        </div>
+        {displayMode.grid && displayedMembers && (
+          <CardGrid cards={displayedMembers} />
+        )}
+        {displayMode.gallery && displayedMembers && (
+          <CardGallery members={displayedMembers} />
+        )}
+      </div>
     </div>
   );
 }

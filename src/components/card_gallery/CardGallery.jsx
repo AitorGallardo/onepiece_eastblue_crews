@@ -9,7 +9,7 @@ export const CardGallery = ({members}) => {
   return (
     <div className="cardGallery__container">
         {
-            members.map((member)=>(<Card key={member.name} isSingleCard={isSingleCard} {...member}/>))
+            members.map((member)=>(<Card key={member.name} isSingleCard={isSingleCard} isGallery={true} {...member}/>))
         }
     </div>
   )
