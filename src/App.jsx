@@ -11,10 +11,9 @@ import { SortComponent } from './components/sort_component/SortComponent';
 import { Sidebar } from './components/sidebar/Sidebar';
 import { SidebarIcon } from './components/sidebarIcon/SidebarIcon';
 import { CardGallery } from './components/card_gallery/CardGallery';
+import { GridIcon } from './components/iconComponents/GridIcon';
+import { GalleryIcon } from './components/iconComponents/GalleryIcon';
 
-import GridIcon from './assets/grid-icon.svg';
-import GalleryIcon from './assets/gallery-icon.svg';
-// import {GridGalleryCopy} from './assets/grid-icon_copy.jsx';
 
 // const API_ENDPIONT = 'http://localhost:3000/api/crews/';
 
@@ -106,7 +105,7 @@ function App() {
       </Sidebar>
       <div className='app__content'>
         <div className='app__content__dislay_mode-icons'>
-          <img
+          {/* <img
             className='display_mode-icon grid'
             src={GridIcon}
             onClick={() => setDisplayMode({ grid: true, gallery: false })}
@@ -117,8 +116,9 @@ function App() {
             src={GalleryIcon}
             onClick={() => setDisplayMode({ grid: false, gallery: true })}
             alt='Gallery Icon'
-          />
-          {/* <GridGalleryCopy/> */}
+          /> */}
+          <GridIcon/>
+          <GalleryIcon/>
         </div>
         {displayMode.grid && displayedMembers && (
           <CardGrid cards={displayedMembers} />

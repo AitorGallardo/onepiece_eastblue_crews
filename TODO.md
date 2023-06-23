@@ -9,6 +9,7 @@
 [X] mobile version
 [X] improve and clear, like fetch better
 
+[ ] acabar de mirar lo de los svgs
 [ ] cambiar modo grid a modo acordeon
 [X] mejorar fotos
 [ ] Meter acordeon al filter con nombre negrita y que puedas clickar sugerencia para que salga esa. Poner abajo un boton con +3 results y q se expanda, quando solo queda uno quita toods, meter el subrayado al busqcar del nomber?quitar busqueda por tripulacion,

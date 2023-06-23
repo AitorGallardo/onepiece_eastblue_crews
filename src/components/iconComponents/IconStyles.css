@@ -1,0 +1,17 @@
+.icon{
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+.stroke-icon:hover {
+  stroke: red;
+}
+.fill-icon:hover {
+  fill: red;
+}
+
+.grid-icon{
+  height: 18px;
+  align-self: center;
+}
+
