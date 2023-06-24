@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
+
 import './IconStyles.css';
+
 
 const styles = {
   color: '#000000',
@@ -34,10 +37,6 @@ const styles = {
   colorInterpolation: 'sRGB',
   colorInterpolationFilters: 'linearRGB',
   solidColor: '#000000',
-  solidOpacity: '1',
-  fill: '#000000',
-  fillOpacity: '1',
-  fillRule: 'nonzero',
   stroke: 'none',
   strokeWidth: '25',
   strokeLinecap: 'butt',
@@ -52,16 +51,16 @@ const styles = {
   textRendering: 'auto',
   enableBackground: 'accumulate',
 };
-export const GridIcon = () => {
+export const GridIcon = ({displayMode}) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       width='400'
       height='400'
       viewBox='0 0 400 400.00001'
-      id='svg2'
       version='1.1'
       className='icon grid-icon fill-icon'
+      onClick={()=>displayMode()}
     >
       <defs id='defs4' />
       <sodipodi:namedview
@@ -112,3 +111,8 @@ export const GridIcon = () => {
     </svg>
   );
 };
+
+GridIcon.propTypes = {
+  displayMode: PropTypes.func,
+};
+

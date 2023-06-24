@@ -72,6 +72,12 @@ function App() {
     }
   };
 
+  const handleDisplayMode = (value)=>{
+    console.log('value',value);
+    const mode = value === 'grid' ? { grid: true, gallery: false } : { grid: false, gallery: true }
+    setDisplayMode(mode)
+  }
+
   return (
     <div className='app__container'>
       <div className='app__filter-section'>
@@ -105,20 +111,8 @@ function App() {
       </Sidebar>
       <div className='app__content'>
         <div className='app__content__dislay_mode-icons'>
-          {/* <img
-            className='display_mode-icon grid'
-            src={GridIcon}
-            onClick={() => setDisplayMode({ grid: true, gallery: false })}
-            alt='Grid Icon'
-          />
-          <img
-            className='display_mode-icon'
-            src={GalleryIcon}
-            onClick={() => setDisplayMode({ grid: false, gallery: true })}
-            alt='Gallery Icon'
-          /> */}
-          <GridIcon/>
-          <GalleryIcon/>
+          <GridIcon displayMode={(value='grid')=>handleDisplayMode(value)} onClick={() => setDisplayMode({ grid: true, gallery: false })}/>
+          <GalleryIcon displayMode={(value='gallery')=>handleDisplayMode(value)} onClick={() => setDisplayMode({ grid: false, gallery: true })}/>
         </div>
         {displayMode.grid && displayedMembers && (
           <CardGrid cards={displayedMembers} />

@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+
 import './IconStyles.css'
 
 const styles = {
@@ -8,7 +11,7 @@ const styles = {
   blockProgression: 'tb',
   inkscapeFontSpecification: 'Bitstream Vera Sans'
 };
-export const GalleryIcon = () => {
+export const GalleryIcon = ({displayMode}) => {
   return (
     <svg
       fill='#000000'
@@ -19,6 +22,7 @@ export const GalleryIcon = () => {
       viewBox='0 0 24 24'
       xmlns='http://www.w3.org/2000/svg'
       className='icon fill-icon'
+      onClick={()=>displayMode()}
     >
       <path
         style={styles}
@@ -28,3 +32,8 @@ export const GalleryIcon = () => {
     </svg>
   );
 };
+
+GalleryIcon.propTypes = {
+  displayMode: PropTypes.func,
+};
+
