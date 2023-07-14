@@ -1,6 +1,7 @@
 import { startLoadingCrews, setAllData } from './onepieceSlice';
 
-const API_ENDPIONT = 'http://localhost:3000/api/crews/';
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+const ALL_CREWS_ENDPOINT = '/api/crews/';
 const APIKEY = import.meta.env.VITE_REACT_APP_API_KEY;
 
 function extractMembers(crews) {
@@ -13,20 +14,25 @@ function extractMembers(crews) {
 }
 
 export const getAllCrews = () => {
-  return async ( dispatch, getState ) => {
+  const API_ENDPOINT = API_URL + ALL_CREWS_ENDPOINT;
+  return async (dispatch, getState) => {
     dispatch(startLoadingCrews());
 
-    fetch(API_ENDPIONT, {
+    fetch(API_ENDPOINT, {
       headers: {
         'x-api-key': APIKEY,
         'Content-Type': 'application/json',
       },
     })
       .then((res) => res.json())
-      .then(({east_blue_pirate_crews}) => {
+      .then(({ east_blue_pirate_crews }) => {
         const crews = east_blue_pirate_crews.map((crew) => crew.name);
         const members = extractMembers(east_blue_pirate_crews);
         dispatch(setAllData({ members, crews }));
+      })
+      .catch((error) => {
+        // Handle the error
+        console.error('Error:', error);
       });
   };
 };

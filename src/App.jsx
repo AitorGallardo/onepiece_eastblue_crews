@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-// import { useFetch } from './hooks/useFetch';
 import { CardGrid } from './components/card_grid/CardGrid';
 import { getAllCrews, setDisplayedMembers } from './store/slices/onepiece';
 import { useEffect, useRef, useState } from 'react';
