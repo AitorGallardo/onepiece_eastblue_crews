@@ -40,6 +40,7 @@
 }
 
 .app__content{
+  background-color: rgba(255, 255, 255, 0.938);
   padding: 20px;
 }
 .app__content__dislay_mode-icons{
