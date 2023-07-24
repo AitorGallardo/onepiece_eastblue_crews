@@ -21,7 +21,7 @@ function App() {
   const { isLoading, crews, members, displayedMembers } = useSelector(
     (state) => state.onepiece
   );
-
+  const [isMobile, setIsMobile] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [displayMode, setDisplayMode] = useState({
     grid: true,
@@ -34,6 +34,14 @@ function App() {
   });
   const sidebarRef = useRef(null);
   const sidebarIconRef = useRef(null);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 1200); // Adjust the threshold as per your needs
+    };
+
+    checkIsMobile();
+  }, []);
 
   useEffect(() => {
     dispatch(getAllCrews());
@@ -109,10 +117,12 @@ function App() {
         />
       </Sidebar>
       <div className='app__content'>
-        <div className='app__content__dislay_mode-icons'>
+        {!isMobile && <div className='app__content__dislay_mode-icons'>
+          
           <GridIcon displayMode={(value='grid')=>handleDisplayMode(value)} onClick={() => setDisplayMode({ grid: true, gallery: false })}/>
           <GalleryIcon displayMode={(value='gallery')=>handleDisplayMode(value)} onClick={() => setDisplayMode({ grid: false, gallery: true })}/>
         </div>
+        }
         {displayMode.grid && displayedMembers && (
           <CardGrid cards={displayedMembers} />
         )}
